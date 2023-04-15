@@ -5,15 +5,18 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { MantineProvider } from '@mantine/core';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <MantineProvider theme={{ fontFamily: 'Open Sans, sans serif' }}>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </MantineProvider>
   </React.StrictMode>
 );
 

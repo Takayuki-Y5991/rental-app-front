@@ -1,0 +1,15 @@
+.th {
+    padding: '0 !important'
+}
+.control {
+    width: 100%;
+    &:hover {
+        background-color: white;
+    }
+}
+
+.icon {
+    width: rem(21);
+    height: rem(21);
+    border-radius: rem(21);
+}
