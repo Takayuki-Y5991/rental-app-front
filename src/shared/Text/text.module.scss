@@ -1,0 +1,10 @@
+.icon-text {
+    margin-left: 8px; /* アイコンとテキストの間のスペースを調整 */
+    vertical-align: middle; /* アイコンとテキストが同じ高さになるように調整 */
+    font-size: 16px; /* テキストのフォントサイズを調整 */
+  }
+  
+  .icon-container {
+    display: flex; /* 子要素を横に並べる */
+    align-items: center; /* 子要素を垂直方向の中央に配置 */
+  }

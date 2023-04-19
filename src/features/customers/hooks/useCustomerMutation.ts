@@ -10,17 +10,12 @@ export const useCustomerMutation = () => {
 
   const createCustomerMutation = useMutation(
     (customer: Omit<Customer, 'id' | 'registerDate' | 'updateDate'>) =>
-      axios.post<Customer>(`${process.env.API_URL}/customers`, customer),
+      axios.post<Customer>(`${process.env.REACT_APP_REST_URL}/customers`, customer),
     {
       onSuccess: (res) => {
-        const previousCustomers = queryClient.getQueryData<Customer[]>([
-          'customers',
-        ]);
+        const previousCustomers = queryClient.getQueryData<Customer[]>(['customers']);
         if (previousCustomers) {
-          queryClient.setQueryData<Customer[]>(
-            ['customers'],
-            [...previousCustomers, res.data]
-          );
+          queryClient.setQueryData<Customer[]>(['customers'], [...previousCustomers, res.data]);
         }
         dispatch(reset);
       },
@@ -28,15 +23,10 @@ export const useCustomerMutation = () => {
   );
   const updateCustomerMutation = useMutation(
     (customer: Customer) =>
-      axios.put<Customer>(
-        `${process.env.API_URL}/customers/${customer.id}`,
-        customer
-      ),
+      axios.put<Customer>(`${process.env.REACT_APP_REST_URL}/customers/${customer.id}`, customer),
     {
       onSuccess: (res, variables) => {
-        const previousCustomers = queryClient.getQueryData<Customer[]>([
-          'customers',
-        ]);
+        const previousCustomers = queryClient.getQueryData<Customer[]>(['customers']);
         if (previousCustomers) {
           queryClient.setQueryData<Customer[]>(
             ['customers'],
@@ -49,7 +39,7 @@ export const useCustomerMutation = () => {
     }
   );
   const deleteCustomerMutation = useMutation(
-    (id: number) => axios.delete(`${process.env.API_URL}/customers/${id}`),
+    (id: number) => axios.delete(`${process.env.REACT_APP_REST_URL}/customers/${id}`),
     {
       onSuccess(res, variables) {
         const previous = queryClient.getQueryData<Customer[]>(['customers']);

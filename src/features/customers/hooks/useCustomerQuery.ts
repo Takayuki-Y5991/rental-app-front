@@ -4,9 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 export const useCustomersQuery = () => {
   const fetchCustomers = async () => {
-    const { data } = await axios.get<Customer[]>(
-      `${process.env.API_URL}/customers`
-    );
+    const { data } = await axios.get<Customer[]>(`${process.env.REACT_APP_REST_URL}/customers`);
     return data;
   };
   return useQuery<Customer[], Error>({
@@ -19,7 +17,7 @@ export const useCustomersQuery = () => {
 export const useCustomerQuery = (customerId: number) => {
   const fetchCustomers = async () => {
     const { data } = await axios.get<Customer[]>(
-      `${process.env.API_URL}/customers/${customerId}`
+      `${process.env.REACT_APP_REST_URL}/customers/${customerId}`
     );
     return data;
   };

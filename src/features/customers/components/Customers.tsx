@@ -2,6 +2,7 @@ import React from 'react';
 import { useCustomersQuery } from '../hooks/useCustomerQuery';
 import { TableSort } from '../../../shared/Table/components/Table';
 import { Customer } from '../types/Customer';
+import { Layout } from '../../../shared/Layout/components/Layout';
 
 export const Customers = () => {
   const { data } = useCustomersQuery();
@@ -13,9 +14,9 @@ export const Customers = () => {
     { key: 'birthday', label: '生年月日' },
   ];
   return (
-    <>
+    <Layout>
       <div>TITLE</div>
       {data && <TableSort<Customer> data={data} columns={columns} />}
-    </>
+    </Layout>
   );
 };

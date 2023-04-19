@@ -13,9 +13,11 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <MantineProvider theme={{ fontFamily: 'Open Sans, sans serif' }}>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <React.Suspense>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </React.Suspense>
     </MantineProvider>
   </React.StrictMode>
 );

@@ -1,6 +1,6 @@
 import './App.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter, Route, RouterProvider } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { router } from './routers/router';
 
@@ -9,7 +9,6 @@ const queryClient = new QueryClient({
     queries: {
       retry: false,
       refetchOnWindowFocus: false,
-      suspense: true,
     },
   },
 });
