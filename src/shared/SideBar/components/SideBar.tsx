@@ -34,7 +34,6 @@ export const SideBar = () => {
     <SideMenu key={item.label} link={item.link} Icon={item.Icon} label={item.label} />
   ));
   return (
-    // FIXME: SIDEBAR's height should be change
     <Navbar height={'100vh'} width={{ sm: 180 }} p="md" className={classes.navbar}>
       <Navbar.Section grow>
         <Group position="apart" className={classes.header}>

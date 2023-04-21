@@ -5,8 +5,6 @@ import { AnyRecord } from './AnyRecords';
  *
  *  @params {data} record
  *  @params {columns} columns
- * @params {onEdit} Edit Modal
- * @params {onDelete} Delete Modal
  */
 export interface TableSortProps<T extends AnyRecord> {
   data: T[];
@@ -14,6 +12,7 @@ export interface TableSortProps<T extends AnyRecord> {
     key: keyof T;
     label: string;
   }>;
-  onEdit?: (item: T) => React.ReactNode;
-  onDelete?: (item: T) => React.ReactNode;
+  onCreateChild?: React.ReactNode;
+  onPageChange?: (page: number) => void;
+  initPage?: number;
 }
