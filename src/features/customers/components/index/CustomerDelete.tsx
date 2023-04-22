@@ -3,6 +3,8 @@ import React from 'react';
 import { WrapModal } from '../../../../shared/Modal/components/Modal';
 import { CustomerModalProps } from '../../types/CustomerModalProps';
 import { useCustomerMutation } from '../../hooks/useCustomerMutation';
+import { useNavigate } from 'react-router-dom';
+import { notifications } from '@mantine/notifications';
 
 export const CustomerDelete = ({ status, setModalState, id }: CustomerModalProps) => {
   return (
@@ -38,10 +40,18 @@ const Footer = ({
   status: boolean;
   setStatus: (args: boolean) => void;
 }) => {
-  const mutation = useCustomerMutation();
-  const onDelete = (id: number) => {
-    // mutation.deleteCustomerMutation(id);
+  const { deleteCustomerMutation } = useCustomerMutation();
+  const navigate = useNavigate();
+
+  const onDelete = async (id: number) => {
+    deleteCustomerMutation.mutate(id);
     setStatus(!status);
+    notifications.show({
+      title: '顧客削除',
+      message: `顧客番号 : [${id}] の顧客を削除しました。`,
+      autoClose: 3,
+    });
+    navigate('/customers');
   };
 
   return (
@@ -49,7 +59,7 @@ const Footer = ({
       mt={'1rem'}
       variant="gradient"
       gradient={{ from: '#ed6ea0', to: '#ec8c69', deg: 35 }}
-      onClick={() => setStatus(!status)}
+      onClick={() => onDelete(id)}
     >
       削除
     </Button>

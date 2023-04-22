@@ -1695,12 +1695,12 @@
     react-remove-scroll "^2.5.5"
     react-textarea-autosize "8.3.4"
 
-"@mantine/dates@^6.0.7":
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/@mantine/dates/-/dates-6.0.7.tgz#f7a0efd0b99d9e7d2cb7049d83d793a1ad5be388"
-  integrity sha512-CvSfSMnb24sES0GvTfyYQ10QE3eCmD0nbapu+2N2RBR+NXveQhZ8VtJlxHLR67/P6x/gaMpUVFTGVWcWIDmdsQ==
+"@mantine/dates@^6.0.8":
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/@mantine/dates/-/dates-6.0.8.tgz#b17717ff30be7ed0b9590ebbdf01fa48c63bbd95"
+  integrity sha512-hWMtkKyg5X8xfvEyFJrXHVJu4Vmq7gWnICUxtyP6xD1KUAP4tZdIIq7fQw0bCow+O99YFzZwv0j7wwGzdTqVlg==
   dependencies:
-    "@mantine/utils" "6.0.7"
+    "@mantine/utils" "6.0.8"
 
 "@mantine/ds@^6.0.7":
   version "6.0.7"
@@ -1709,10 +1709,10 @@
   dependencies:
     "@mantine/utils" "6.0.7"
 
-"@mantine/form@^6.0.7":
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/@mantine/form/-/form-6.0.7.tgz#4ccbaf2ef587d4f27d885d44148f74db7266419a"
-  integrity sha512-5fApVmV9gqqh0h04KkeLzZ79LCBMt91Nydj/h1uzFNluiIxcLCpN/VrOvqiG9DbvIi6h6yeBP/7rbZheHjuXgg==
+"@mantine/form@^6.0.8":
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/@mantine/form/-/form-6.0.8.tgz#79aa025d2060cd36814bc1f3c53b00eb4acc6107"
+  integrity sha512-0Z+4g5JGNGrEnCrrsetc4OaL8Kg5+GUVFnxi6oEHZdD3LJqknK6/OOLLCHXsNuiL0TWSeXiuYT1UihciRCm0Kg==
   dependencies:
     fast-deep-equal "^3.1.3"
     klona "^2.0.5"
@@ -1729,6 +1729,14 @@
   dependencies:
     "@mantine/utils" "6.0.7"
 
+"@mantine/notifications@^6.0.8":
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/@mantine/notifications/-/notifications-6.0.8.tgz#aafd8a3d5a63f15d86643471d21f29aa7e1c8b65"
+  integrity sha512-FFB2g3oVrthwRyL2Zwd1IqqxRkIR35olA/D5mX1WcSq32N0+zN3Sa9iSHeGXfyAMpBl5S8ZcHGoCcxSnMzULDg==
+  dependencies:
+    "@mantine/utils" "6.0.8"
+    react-transition-group "4.4.2"
+
 "@mantine/styles@6.0.7":
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/@mantine/styles/-/styles-6.0.7.tgz#39121c4a5f6268afd5ab5c18a0dda6835199d4dc"
@@ -1741,6 +1749,11 @@
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.7.tgz#fcbc9c809c33bd9c96fd12d7ca63d0c19550bafd"
   integrity sha512-XMm66GNn9hXnc9s/twXzL9iqhzM8HLVOyuKDo4WUn/ZM6NEJYJJVcTTlSIXOPq9AWo8bI76vbAHkIry1aEbgmg==
+
+"@mantine/utils@6.0.8":
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/@mantine/utils/-/utils-6.0.8.tgz#3e77f7ae7ab6c06555a619e137fc62942d95c109"
+  integrity sha512-G7omM5XjnGzXLiFU/r2yOJrixDFnY2pUkqD38cV9e/Qa6KFEErp4mNb+rhkSHafCnvfwBiNcdryZwEhJTtuC+Q==
 
 "@mui/base@5.0.0-alpha.125":
   version "5.0.0-alpha.125"
@@ -8308,6 +8321,16 @@ react-textarea-autosize@8.3.4:
     "@babel/runtime" "^7.10.2"
     use-composed-ref "^1.3.0"
     use-latest "^1.2.1"
+
+react-transition-group@4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
+  integrity sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==
+  dependencies:
+    "@babel/runtime" "^7.5.5"
+    dom-helpers "^5.0.1"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
 
 react-transition-group@^4.4.5:
   version "4.4.5"

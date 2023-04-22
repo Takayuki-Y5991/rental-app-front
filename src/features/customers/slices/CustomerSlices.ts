@@ -1,10 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState, store } from '../../../app/store';
-import { CreateCustomer, Customer, UpdateCustomer } from '../types/Customer';
+import { RootState } from '../../../app/store';
+import { Customer } from '../types/Customer';
 
-export interface CustomerState extends Customer {}
-
-const initialState: CustomerState = {
+const initialState: Customer = {
   id: 0,
   password: '',
   name: '',
@@ -18,10 +16,10 @@ export const customerSlice = createSlice({
   name: 'customer',
   initialState,
   reducers: {
-    create: (state, action: PayloadAction<CreateCustomer>) => {
+    create: (state, action: PayloadAction<Customer>) => {
       state = { ...state, ...action.payload };
     },
-    update: (state, action: PayloadAction<UpdateCustomer>) => {
+    update: (state, action: PayloadAction<Customer>) => {
       state = { ...state, ...action.payload };
     },
     reset: (state) => {

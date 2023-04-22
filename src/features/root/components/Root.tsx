@@ -1,4 +1,4 @@
-import { Button, Center, Group, Stack } from '@mantine/core';
+import { Button, Center, Stack } from '@mantine/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
