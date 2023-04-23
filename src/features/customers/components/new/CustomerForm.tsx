@@ -69,8 +69,8 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
       updateDate: values.updateDate ? moment(values.updateDate).format('YYYY-MM-DD') : undefined,
     };
     action.mutate(customerData);
-    notification();
     form.reset();
+    notification();
   };
 
   return (

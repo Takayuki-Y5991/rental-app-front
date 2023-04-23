@@ -49,7 +49,6 @@ const Footer = ({
     notifications.show({
       title: '顧客削除',
       message: `顧客番号 : [${id}] の顧客を削除しました。`,
-      autoClose: 3,
     });
     navigate('/customers');
   };

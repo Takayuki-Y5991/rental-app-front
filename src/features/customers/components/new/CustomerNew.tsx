@@ -34,7 +34,7 @@ export const CustomerNew = () => {
     notifications.show({
       title: '顧客作成',
       message: '顧客の新規作成に成功しました。',
-      autoClose: 3,
+      // autoClose: 3,
     });
   };
 
