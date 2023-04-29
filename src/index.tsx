@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { MantineProvider } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -15,6 +16,7 @@ root.render(
     <MantineProvider theme={{ fontFamily: 'Open Sans, sans serif' }}>
       <React.Suspense>
         <Provider store={store}>
+          <Notifications />
           <App />
         </Provider>
       </React.Suspense>

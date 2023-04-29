@@ -9,7 +9,7 @@ export const useCustomerMutation = () => {
   const queryClient = useQueryClient();
 
   const createCustomerMutation = useMutation(
-    (customer: Omit<Customer, 'id' | 'registerDate' | 'updateDate'>) =>
+    (customer: Customer) =>
       axios.post<Customer>(`${process.env.REACT_APP_REST_URL}/customers`, customer),
     {
       onSuccess: (res) => {

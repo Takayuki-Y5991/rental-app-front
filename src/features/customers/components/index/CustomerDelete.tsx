@@ -22,7 +22,7 @@ export const CustomerDelete = ({ status, setModalState, id }: CustomerModalProps
         footer={<Footer id={id} setStatus={setModalState} status={status} />}
         setModalState={setModalState}
         status={status}
-      ></WrapModal>
+      />
     </>
   );
 };

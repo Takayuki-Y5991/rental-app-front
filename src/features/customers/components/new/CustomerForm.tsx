@@ -19,7 +19,13 @@ const useStyles = createStyles(() => ({
   },
 }));
 
-export const CustomerForm = ({ customer, action, notification }: CustomerFormProps) => {
+export const CustomerForm = ({
+  customer,
+  action,
+  notification,
+  status,
+  setStatus,
+}: CustomerFormProps) => {
   const { classes } = useStyles();
 
   const form = useForm({
@@ -28,9 +34,15 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
       name: customer.name,
       gender: customer.gender,
       password: customer.password,
-      birthday: customer.birthday,
-      registerDate: customer.registerDate,
-      updateDate: customer.updateDate,
+      birthday: customer.birthday ? new Date(customer.birthday) : null,
+      registerDate:
+        customer.registerDate !== undefined
+          ? moment(customer.registerDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
+          : null,
+      updateDate:
+        customer.updateDate !== undefined
+          ? moment(customer.updateDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
+          : null,
     },
     validate: {
       name: (value) => (value.length < 2 ? '顧客名は２文字以上で入力してください。' : null),
@@ -45,9 +57,13 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
       password: value.password,
       birthday: moment(value.birthday).format('YYYY-MM-DD'),
       registerDate:
-        value.registerDate !== undefined ? moment(value.registerDate).format('YYYY-MM-DD') : null,
+        value.registerDate !== undefined
+          ? moment(value.registerDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
+          : null,
       updateDate:
-        value.updateDate !== undefined ? moment(value.updateDate).format('YYYY-MM-DD') : null,
+        value.updateDate !== undefined
+          ? moment(value.updateDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
+          : null,
     }),
   });
 
@@ -64,12 +80,18 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
       ...values,
       birthday: values.birthday ? moment(values.birthday).format('YYYY-MM-DD') : undefined,
       registerDate: values.registerDate
-        ? moment(values.registerDate).format('YYYY-MM-DD')
+        ? moment(values.registerDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
         : undefined,
-      updateDate: values.updateDate ? moment(values.updateDate).format('YYYY-MM-DD') : undefined,
+      updateDate: values.updateDate
+        ? moment(values.updateDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
+        : undefined,
     };
     action.mutate(customerData);
     form.reset();
+    if (status !== undefined) {
+      setStatus?.(!status);
+      window.location.reload();
+    }
     notification();
   };
 
@@ -87,6 +109,7 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
           className={classes.columns}
           label="性別"
           placeholder="ex: 男性"
+          defaultValue={customer.gender?.toString()}
           withAsterisk
           data={[
             { value: '1', label: '男性' },

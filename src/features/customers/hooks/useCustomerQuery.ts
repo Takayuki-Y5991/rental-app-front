@@ -28,6 +28,6 @@ export const useCustomerQuery = (customerId: number) => {
   return useQuery<Customer, Error>({
     queryKey: ['customer'],
     queryFn: () => fetchCustomer(customerId),
-    staleTime: 0,
+    cacheTime: 0,
   });
 };

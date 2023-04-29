@@ -3,9 +3,10 @@ import { Layout } from '../../../../shared/Layout/components/Layout';
 import { CustomTitle } from '../../../../shared/Text/components/CustomTitle';
 import { useParams } from 'react-router-dom';
 import { useCustomerQuery } from '../../hooks/useCustomerQuery';
-import { Box, Button, createStyles } from '@mantine/core';
+import { Box, createStyles } from '@mantine/core';
 import { CustomerContent } from './CustomerContent';
 import { CustomerDelete } from './CustomerDelete';
+import { CustomerEdit } from '../new/CustomerEdit';
 
 const useStyles = createStyles(() => ({
   wrap: {
@@ -24,7 +25,8 @@ export const CustomerDetail = () => {
   const { id } = useParams();
   const { data } = useCustomerQuery(Number(id));
 
-  const [isModalStatus, setIsModalStatus] = useState(false);
+  const [isDeleteModalStatus, setIsDeleteModalStatus] = useState(false);
+  const [isEditModalStatus, setIsEditModalStatus] = useState(false);
 
   return (
     <Layout>
@@ -35,16 +37,14 @@ export const CustomerDetail = () => {
             <>
               <CustomerContent data={data} />
               <div className={classes.buttonArea}>
-                <Button
-                  variant="gradient"
-                  gradient={{ from: 'teal', to: 'lime', deg: 105 }}
-                  mr="1rem"
-                >
-                  編集
-                </Button>
+                <CustomerEdit
+                  status={isEditModalStatus}
+                  setModalState={setIsEditModalStatus}
+                  customer={data}
+                />
                 <CustomerDelete
-                  status={isModalStatus}
-                  setModalState={setIsModalStatus}
+                  status={isDeleteModalStatus}
+                  setModalState={setIsDeleteModalStatus}
                   id={Number(data.id)}
                 />
               </div>
