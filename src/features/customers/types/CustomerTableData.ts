@@ -1,6 +1,6 @@
 export interface CustomersTableData {
   id?: number;
   name: string;
-  sex: string;
+  gender: string;
   birthday: string;
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { TableHeaderProps } from '../types/TableHeaderProps';
 import { IconChevronDown, IconChevronUp, IconSelector } from '@tabler/icons-react';
-import '../table.module.scss';
 import { Group, UnstyledButton, Text, Center } from '@mantine/core';
 
 export const TableHeaderItem = ({ children, reversed, sorted, onSort }: TableHeaderProps) => {

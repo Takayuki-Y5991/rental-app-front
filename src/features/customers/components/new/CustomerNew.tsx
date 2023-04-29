@@ -20,7 +20,7 @@ const useStyles = createStyles(() => ({
 const init = {
   id: 0,
   name: '',
-  sex: 0,
+  gender: 0,
   password: '',
   birthday: undefined,
   registerDate: undefined,

@@ -6,7 +6,7 @@ const initialState: Customer = {
   id: 0,
   password: '',
   name: '',
-  sex: 1,
+  gender: 1,
   birthday: undefined,
   registerDate: undefined,
   updateDate: undefined,

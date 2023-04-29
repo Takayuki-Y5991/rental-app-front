@@ -28,6 +28,7 @@ export function TableSort<T extends AnyRecord>({
   onCreateChild,
   onPageChange,
   initPage,
+  count,
 }: TableSortProps<T>) {
   const { classes } = useStyles();
   const [search, setSearch] = useState('');
@@ -47,6 +48,8 @@ export function TableSort<T extends AnyRecord>({
     setSearch(value);
     setSortedData(sort(data, { sortBy, reversed: reverseSortDirection, search: value }));
   };
+
+  const totalPage = count !== 0 ? Math.ceil(count / 10) : 1;
 
   const rows = sortedData.map((row, index) => (
     <tr key={index}>
@@ -107,7 +110,7 @@ export function TableSort<T extends AnyRecord>({
       </Table>
       <div>
         <Pagination
-          total={100}
+          total={totalPage}
           siblings={3}
           defaultValue={initPage}
           className={classes.pagination}

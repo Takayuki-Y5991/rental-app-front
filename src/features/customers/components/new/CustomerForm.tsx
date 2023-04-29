@@ -26,7 +26,7 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
     initialValues: {
       id: customer.id,
       name: customer.name,
-      sex: customer.sex,
+      gender: customer.gender,
       password: customer.password,
       birthday: customer.birthday,
       registerDate: customer.registerDate,
@@ -34,14 +34,14 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
     },
     validate: {
       name: (value) => (value.length < 2 ? '顧客名は２文字以上で入力してください。' : null),
-      sex: (value) => (value === undefined || value === 0 ? '性別を選択してください。' : null),
+      gender: (value) => (value === undefined || value === 0 ? '性別を選択してください。' : null),
       birthday: (value) => (value === undefined ? '誕生日を入力してください。' : null),
       password: (value) => (value.length < 8 ? 'パスワードは８文字以上で設定してください' : null),
     },
     transformValues: (value) => ({
       id: value.id,
       name: value.name,
-      sex: Number(value.sex),
+      gender: Number(value.gender),
       password: value.password,
       birthday: moment(value.birthday).format('YYYY-MM-DD'),
       registerDate:
@@ -54,7 +54,7 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
   const onSubmit = (values: {
     id: number | undefined;
     name: string;
-    sex: number;
+    gender: number;
     password: string;
     birthday: string;
     registerDate: string | null;
@@ -92,7 +92,7 @@ export const CustomerForm = ({ customer, action, notification }: CustomerFormPro
             { value: '1', label: '男性' },
             { value: '2', label: '女性' },
           ]}
-          {...form.getInputProps('sex')}
+          {...form.getInputProps('gender')}
         />
         <DateInput
           className={classes.columns}

@@ -1,19 +1,20 @@
-import { Customer } from './../types/Customer';
+import { Customer, Customers } from './../types/Customer';
 import axios from 'axios';
 import { useQuery } from '@tanstack/react-query';
 import { QueryParams } from '../types/QueryParams';
 
 export const useCustomersQuery = (params: QueryParams = {}) => {
   const fetchCustomers = async () => {
-    const { data } = await axios.get<Customer[]>(`${process.env.REACT_APP_REST_URL}/customers`, {
+    const { data } = await axios.get<Customers>(`${process.env.REACT_APP_REST_URL}/customers`, {
       params,
     });
     return data;
   };
-  return useQuery<Customer[], Error>({
+  // FIXME: 毎回データを取得する構造を変更したい
+  return useQuery<Customers, Error>({
     queryKey: ['customers', params],
-    queryFn: fetchCustomers,
-    staleTime: 0,
+    queryFn: () => fetchCustomers(),
+    cacheTime: 0,
   });
 };
 

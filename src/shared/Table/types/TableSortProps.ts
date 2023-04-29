@@ -15,4 +15,5 @@ export interface TableSortProps<T extends AnyRecord> {
   onCreateChild?: React.ReactNode;
   onPageChange?: (page: number) => void;
   initPage?: number;
+  count: number;
 }

@@ -34,7 +34,7 @@ export const CustomerContent = ({ data }: { data: Customer }) => {
           性別
         </Grid.Col>
         <Grid.Col span={9} className={classes.columns}>
-          {data.sex === 1 ? '男性' : '女性'}
+          {data.gender === 1 ? '男性' : '女性'}
         </Grid.Col>
         <Grid.Col span={3} className={classes.columns}>
           誕生日
