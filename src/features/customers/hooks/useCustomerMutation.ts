@@ -1,11 +1,8 @@
-import { useAppDispatch } from '../../../app/hooks';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Customer } from '../types/Customer';
 import axios from 'axios';
-import { reset } from '../slices/CustomerSlices';
 
 export const useCustomerMutation = () => {
-  const dispatch = useAppDispatch();
   const queryClient = useQueryClient();
 
   const createCustomerMutation = useMutation(
@@ -17,7 +14,6 @@ export const useCustomerMutation = () => {
         if (previousCustomers) {
           queryClient.setQueryData<Customer[]>(['customers'], [...previousCustomers, res.data]);
         }
-        dispatch(reset);
       },
     }
   );
@@ -49,7 +45,6 @@ export const useCustomerMutation = () => {
             previous.filter((customer) => customer.id !== variables)
           );
         }
-        dispatch(reset);
       },
     }
   );
