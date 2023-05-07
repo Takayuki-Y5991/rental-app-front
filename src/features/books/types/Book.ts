@@ -4,7 +4,7 @@ export interface Book {
   author: string;
   publisher: string;
   status: number;
-  arrivalData: Date | string | undefined;
+  arrivalDate: Date | string | undefined;
   updateDate?: Date | string | undefined;
 }
 

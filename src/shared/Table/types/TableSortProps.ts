@@ -16,4 +16,5 @@ export interface TableSortProps<T extends AnyRecord> {
   onPageChange?: (page: number) => void;
   initPage?: number;
   count: number;
+  detailPath?: string;
 }

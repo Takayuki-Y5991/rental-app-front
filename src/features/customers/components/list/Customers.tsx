@@ -39,6 +39,7 @@ export const Customers = () => {
             onPageChange={onPageChange}
             initPage={offset}
             count={data.count}
+            detailPath={'customers'}
           />
         )}
       </Suspense>

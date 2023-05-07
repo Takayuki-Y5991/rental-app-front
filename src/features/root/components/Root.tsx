@@ -19,9 +19,9 @@ export const Root = () => {
           <Link to="/customers">
             <Button variant="outline">顧客管理</Button>
           </Link>
-          <Button variant="outline" onClick={() => window.alert('工事中')}>
-            図書管理
-          </Button>
+          <Link to="/books">
+            <Button variant="outline">図書管理</Button>
+          </Link>
         </Stack>
       </Center>
     </>

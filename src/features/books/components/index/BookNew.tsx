@@ -23,7 +23,7 @@ const init = {
   author: '',
   publisher: '',
   status: 0,
-  arrivalData: undefined,
+  arrivalDate: undefined,
   updateDate: undefined,
 };
 

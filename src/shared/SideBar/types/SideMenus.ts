@@ -8,5 +8,5 @@ export type MenuItem = {
 
 export const SideMenus: MenuItem[] = [
   { link: '/customers', label: '顧客管理', Icon: IconUserCircle },
-  { link: '/', label: '書籍管理', Icon: IconBooks },
+  { link: '/books', label: '書籍管理', Icon: IconBooks },
 ];

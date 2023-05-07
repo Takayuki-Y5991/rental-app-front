@@ -7,12 +7,14 @@ import { CustomerNew } from '../features/customers/components/new/CustomerNew';
 import { CustomerDetail } from '../features/customers/components/index/CustomerDetail';
 import { BookDetail } from '../features/books/components/index/BookDetail';
 import { BookNew } from '../features/books/components/index/BookNew';
+import { Books } from '../features/books/components/list/Books';
 
 export const router = createBrowserRouter([
   { path: '/', element: <Root /> },
   { path: '/customers', element: <Customers /> },
   { path: '/customers/:id', element: <CustomerDetail /> },
   { path: '/customers/new', element: <CustomerNew /> },
+  { path: '/books', element: <Books /> },
   { path: '/books/new', element: <BookNew /> },
   { path: '/books/:id', element: <BookDetail /> },
   { path: '*', element: <NotFoundTitle /> },

@@ -32,8 +32,8 @@ export const BookForm = ({ book, action, notification, status, setStatus }: Book
       author: book.author,
       publisher: book.publisher,
       status: book.status,
-      arrivalData: book.arrivalData ? new Date(book.arrivalData) : null,
-      updateDate: book.updateDate ? new Date(book.updateDate) : null,
+      arrivalDate: book.arrivalDate ? new Date(book.arrivalDate) : new Date(),
+      updateDate: book.updateDate ? new Date(book.updateDate) : new Date(),
     },
     validate: {
       bookName: (value) => (value.length <= 1 ? '書籍名を入力してください。' : null),
@@ -47,9 +47,9 @@ export const BookForm = ({ book, action, notification, status, setStatus }: Book
       author: values.author,
       publisher: values.publisher,
       status: Number(values.status),
-      arrivalData:
-        values.arrivalData !== undefined
-          ? moment(values.arrivalData).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
+      arrivalDate:
+        values.arrivalDate !== undefined
+          ? moment(values.arrivalDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
           : null,
       updateDate:
         values.updateDate !== undefined
@@ -64,13 +64,13 @@ export const BookForm = ({ book, action, notification, status, setStatus }: Book
     author: string;
     publisher: string;
     status: number;
-    arrivalData: string | null;
+    arrivalDate: string | null;
     updateDate: string | null;
   }) => {
     const bookData: Book = {
       ...values,
-      arrivalData: values.arrivalData
-        ? moment(values.arrivalData).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
+      arrivalDate: values.arrivalDate
+        ? moment(values.arrivalDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
         : undefined,
       updateDate: values.updateDate
         ? moment(values.updateDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
@@ -80,7 +80,7 @@ export const BookForm = ({ book, action, notification, status, setStatus }: Book
     form.reset();
     if (status !== undefined) {
       setStatus?.(!status);
-      window.location.reload();
+      // window.location.reload();
     }
     notification();
   };
@@ -124,14 +124,14 @@ export const BookForm = ({ book, action, notification, status, setStatus }: Book
             {...form.getInputProps('status')}
           />
         )}
-        {book.arrivalData && (
+        {book.arrivalDate && (
           <DateInput
             className={classes.columns}
             label="入荷日"
             valueFormat="YYYY-MM-DDTHH:mm:ss.SSSSSS"
             placeholder="ex: 1990-01-01T......"
             withAsterisk
-            {...form.getInputProps('arrivalData')}
+            {...form.getInputProps('arrivalDate')}
           />
         )}
         <div className={classes.buttonArea}>

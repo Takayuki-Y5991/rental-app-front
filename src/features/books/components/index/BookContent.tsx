@@ -51,8 +51,8 @@ export const BookContent = ({ data }: { data: Book }) => {
           <ContentItem title="著者" value={data.author} />
           <ContentItem title="出版社" value={data.publisher} />
           <ContentItem title="状態" value={transformStatus(data.status)} />
-          {data.arrivalData && (
-            <ContentItem title="入荷日" value={moment(data.arrivalData).format('YYYY-MM-DD')} />
+          {data.arrivalDate && (
+            <ContentItem title="入荷日" value={moment(data.arrivalDate).format('YYYY-MM-DD')} />
           )}
         </Grid>
       </div>

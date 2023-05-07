@@ -29,6 +29,7 @@ export function TableSort<T extends AnyRecord>({
   onPageChange,
   initPage,
   count,
+  detailPath,
 }: TableSortProps<T>) {
   const { classes } = useStyles();
   const [search, setSearch] = useState('');
@@ -56,13 +57,15 @@ export function TableSort<T extends AnyRecord>({
       {columns.map((column) => (
         <td key={column.key.toString()}>{String(row[column.key])}</td>
       ))}
-      <td>
-        <Link to={`/customers/${row.id}`}>
-          <Button variant="gradient" gradient={{ from: 'orange', to: 'red' }}>
-            詳細へ
-          </Button>
-        </Link>
-      </td>
+      {detailPath && (
+        <td>
+          <Link to={`/${detailPath}/${row.id}`}>
+            <Button variant="gradient" gradient={{ from: 'orange', to: 'red' }}>
+              詳細へ
+            </Button>
+          </Link>
+        </td>
+      )}
     </tr>
   ));
 

@@ -36,13 +36,13 @@ export const CustomerForm = ({
       password: customer.password,
       birthday: customer.birthday ? new Date(customer.birthday) : null,
       registerDate:
-        customer.registerDate !== undefined
+        customer.registerDate !== null
           ? moment(customer.registerDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
-          : null,
+          : new Date(),
       updateDate:
-        customer.updateDate !== undefined
+        customer.updateDate !== null
           ? moment(customer.updateDate).format('YYYY-MM-DDTHH:mm:ss.SSSSSS')
-          : null,
+          : new Date(),
     },
     validate: {
       name: (value) => (value.length < 2 ? '顧客名は２文字以上で入力してください。' : null),
