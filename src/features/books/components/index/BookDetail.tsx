@@ -7,6 +7,7 @@ import { CustomTitle } from '../../../../shared/Text/components/CustomTitle';
 import { BookContent } from './BookContent';
 import { BookEdit } from './BookEdit';
 import { BookDelete } from './BookDelete';
+import { BookRental } from './BookRental';
 
 const useStyles = createStyles(() => ({
   wrap: {
@@ -26,6 +27,7 @@ export const BookDetail = () => {
 
   const [isDeleteModalStatus, setIsDeleteModalStatus] = useState(false);
   const [isEditModalStatus, setIsEditModalStatus] = useState(false);
+  const [isRentalModalStatus, setIsRentalModalStatus] = useState(false);
 
   return (
     <>
@@ -46,6 +48,11 @@ export const BookDetail = () => {
                     status={isDeleteModalStatus}
                     setModalState={setIsDeleteModalStatus}
                     id={Number(data.id)}
+                  />
+                  <BookRental
+                    status={isRentalModalStatus}
+                    setModalState={setIsRentalModalStatus}
+                    book={data}
                   />
                 </div>
               </>
